@@ -1,12 +1,13 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homero - Biografía</title>
+
+    <title>Homero | Biografía y La Odisea</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -15,102 +16,143 @@
         }
 
         body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background-color: #f5efe2;
-            color: #33291f;
+            font-family: Georgia, "Times New Roman", serif;
+            background: #f5eedf;
+            color: #342719;
         }
 
-        /* ENCABEZADO */
+        /* ===== ENCABEZADO ===== */
+
         header {
-            background: linear-gradient(135deg, #49321f, #80613d);
-            color: white;
+            min-height: 430px;
+            background:
+                linear-gradient(rgba(38,25,15,0.65), rgba(38,25,15,0.75)),
+                url("https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 55px 20px;
+            color: white;
         }
 
-        header h1 {
-            font-size: 55px;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
+        .hero {
+            max-width: 850px;
+            padding: 30px;
         }
 
-        header p {
-            font-size: 20px;
+        .hero h1 {
+            font-size: 70px;
+            letter-spacing: 6px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 23px;
+            margin-bottom: 30px;
             font-style: italic;
         }
 
-        /* MENÚ */
+        .boton {
+            display: inline-block;
+            padding: 13px 25px;
+            margin: 7px;
+            border-radius: 30px;
+            background: #c39a5a;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: #e0bd7c;
+            transform: scale(1.05);
+        }
+
+        /* ===== MENÚ ===== */
+
         nav {
-            background-color: #2d2117;
-            padding: 15px;
+            background: #2c2117;
+            padding: 17px;
             text-align: center;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 18px;
-            font-size: 17px;
+            margin: 0 14px;
+            font-size: 16px;
             transition: 0.3s;
         }
 
         nav a:hover {
-            color: #d8b878;
+            color: #d9b56f;
         }
 
-        /* CONTENEDOR */
+        /* ===== GENERAL ===== */
+
         .contenedor {
             width: 90%;
-            max-width: 1100px;
+            max-width: 1150px;
             margin: auto;
         }
 
         section {
-            padding: 60px 0;
+            padding: 70px 0;
         }
 
-        section h2 {
+        .titulo {
             text-align: center;
-            font-size: 35px;
-            color: #63462b;
-            margin-bottom: 30px;
+            color: #694824;
+            font-size: 38px;
+            margin-bottom: 15px;
         }
 
-        /* PRESENTACIÓN */
-        .presentacion {
+        .subtitulo {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+            color: #665544;
+        }
+
+        /* ===== BIOGRAFÍA ===== */
+
+        .bio {
             display: flex;
             align-items: center;
-            gap: 40px;
-            background-color: #fffaf0;
+            gap: 45px;
+            background: #fffaf0;
             padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
-        .retrato {
-            width: 260px;
-            height: 300px;
-            background-color: #d8c4a2;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #63462b;
-            font-size: 20px;
-            padding: 20px;
+        .imagen-homero {
+            width: 290px;
+            height: 330px;
+            background:
+                linear-gradient(rgba(90,60,35,0.25), rgba(90,60,35,0.25)),
+                url("https://images.unsplash.com/photo-1594736797933-d0f06ba1a7c8?auto=format&fit=crop&w=600&q=80");
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
             flex-shrink: 0;
         }
 
-        .presentacion p {
+        .bio-texto p {
             font-size: 18px;
             line-height: 1.8;
+            margin-bottom: 15px;
         }
 
-        /* TARJETAS */
+        /* ===== TARJETAS ===== */
+
         .tarjetas {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -118,324 +160,827 @@
         }
 
         .tarjeta {
-            background-color: #fffaf0;
-            padding: 28px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.10);
-            transition: transform 0.3s;
+            background: #fffaf0;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: 0.35s;
         }
 
         .tarjeta:hover {
-            transform: translateY(-7px);
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+        }
+
+        .icono {
+            font-size: 42px;
+            margin-bottom: 15px;
         }
 
         .tarjeta h3 {
-            color: #765331;
-            margin-bottom: 15px;
-            font-size: 23px;
+            color: #704c28;
+            font-size: 24px;
+            margin-bottom: 12px;
         }
 
         .tarjeta p {
             line-height: 1.7;
-            font-size: 16px;
         }
 
-        /* OBRAS */
+        /* ===== OBRAS ===== */
+
         .obra {
-            background-color: #e7d5b7;
-            margin: 20px 0;
-            padding: 25px;
-            border-left: 7px solid #765331;
-            border-radius: 8px;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            background: #e8d4af;
+            margin: 25px 0;
+            padding: 30px;
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .obra:hover {
+            transform: translateX(8px);
+        }
+
+        .obra-numero {
+            font-size: 45px;
+            font-weight: bold;
+            color: #694824;
         }
 
         .obra h3 {
-            color: #4e351f;
+            font-size: 27px;
             margin-bottom: 10px;
-            font-size: 25px;
+            color: #50351d;
         }
 
         .obra p {
             line-height: 1.7;
         }
 
-        /* ODÍSEA */
+        /* ===== ODISEA ===== */
+
         .odisea {
-            background: linear-gradient(135deg, #d8c09a, #f0dfc0);
-            padding: 40px;
-            border-radius: 18px;
+            background:
+                linear-gradient(rgba(48,69,78,0.85), rgba(48,69,78,0.85)),
+                url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 55px;
+            border-radius: 20px;
             text-align: center;
+        }
+
+        .odisea h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
         }
 
         .odisea p {
             max-width: 850px;
             margin: auto;
-            line-height: 1.8;
+            line-height: 1.9;
             font-size: 18px;
         }
 
-        /* DATOS */
-        .dato {
-            display: flex;
-            align-items: center;
+        /* ===== PERSONAJES ===== */
+
+        .personajes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            background-color: #fffaf0;
-            margin: 15px 0;
-            padding: 20px;
-            border-radius: 10px;
         }
 
-        .numero {
-            background-color: #63462b;
-            color: white;
-            width: 45px;
-            height: 45px;
+        .personaje {
+            background: #fffaf0;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border-bottom: 5px solid #a77b42;
+            transition: 0.3s;
+        }
+
+        .personaje:hover {
+            transform: scale(1.04);
+        }
+
+        .personaje .emoji {
+            font-size: 45px;
+        }
+
+        .personaje h3 {
+            margin: 12px 0;
+            color: #684624;
+        }
+
+        .personaje p {
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        /* ===== LÍNEA DEL TIEMPO ===== */
+
+        .timeline {
+            border-left: 4px solid #8c673b;
+            margin: 30px auto;
+            max-width: 800px;
+            padding-left: 30px;
+        }
+
+        .evento {
+            background: #fffaf0;
+            padding: 22px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .evento::before {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #8c673b;
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            flex-shrink: 0;
+            left: -39px;
+            top: 25px;
         }
 
-        /* PIE DE PÁGINA */
+        .evento h3 {
+            color: #694824;
+            margin-bottom: 8px;
+        }
+
+        /* ===== VIDEO ===== */
+
+        .video-contenedor {
+            max-width: 850px;
+            margin: auto;
+            background: #2d2117;
+            padding: 15px;
+            border-radius: 18px;
+        }
+
+        .video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .video iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border: none;
+        }
+
+        /* ===== ENLACES ===== */
+
+        .enlaces {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .enlace {
+            background: #fffaf0;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .enlace h3 {
+            margin-bottom: 15px;
+            color: #684624;
+        }
+
+        /* ===== PIE ===== */
+
         footer {
-            background-color: #2d2117;
+            background: #2c2117;
             color: white;
             text-align: center;
-            padding: 30px;
-            margin-top: 30px;
+            padding: 35px;
         }
 
         footer p {
-            margin: 7px;
+            margin: 8px;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 800px) {
+        /* ===== RESPONSIVE ===== */
 
-            header h1 {
-                font-size: 40px;
+        @media (max-width: 850px) {
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .bio {
+                flex-direction: column;
+            }
+
+            .tarjetas,
+            .personajes,
+            .enlaces {
+                grid-template-columns: 1fr;
+            }
+
+            .obra {
+                flex-direction: column;
+                text-align: center;
             }
 
             nav a {
                 display: inline-block;
-                margin: 7px;
-            }
-
-            .presentacion {
-                flex-direction: column;
-            }
-
-            .tarjetas {
-                grid-template-columns: 1fr;
-            }
-
-            .retrato {
-                width: 220px;
-                height: 250px;
+                margin: 6px;
             }
         }
+
     </style>
 </head>
 
 <body>
 
-    <!-- ENCABEZADO -->
+    <!-- ================= ENCABEZADO ================= -->
+
     <header>
-        <h1>HOMERO</h1>
-        <p>El gran poeta de la antigua Grecia</p>
+
+        <div class="hero">
+
+            <h1>HOMERO</h1>
+
+            <p>
+                El poeta detrás de dos de las obras más importantes
+                de la literatura griega
+            </p>
+
+            <a href="#biografia" class="boton">
+                Conocer su historia
+            </a>
+
+            <a href="#videos" class="boton">
+                🎬 Ver videos
+            </a>
+
+        </div>
+
     </header>
 
-    <!-- MENÚ -->
+
+    <!-- ================= MENÚ ================= -->
+
     <nav>
+
         <a href="#biografia">Biografía</a>
         <a href="#contexto">Contexto</a>
         <a href="#obras">Obras</a>
         <a href="#odisea">La Odisea</a>
-        <a href="#datos">Datos curiosos</a>
+        <a href="#personajes">Personajes</a>
+        <a href="#videos">Videos</a>
+        <a href="#enlaces">Enlaces</a>
+
     </nav>
+
 
     <main class="contenedor">
 
-        <!-- BIOGRAFÍA -->
+
+        <!-- ================= BIOGRAFÍA ================= -->
+
         <section id="biografia">
-            <h2>Biografía de Homero</h2>
 
-            <div class="presentacion">
+            <h2 class="titulo">
+                Biografía de Homero
+            </h2>
 
-                <div class="retrato">
-                    Imagen de Homero<br><br>
-                    <small>Puedes colocar aquí una imagen o ilustración del poeta.</small>
-                </div>
+            <p class="subtitulo">
+                Una figura fundamental de la literatura de la antigua Grecia.
+            </p>
 
-                <div>
+
+            <div class="bio">
+
+                <div class="imagen-homero"></div>
+
+
+                <div class="bio-texto">
+
                     <p>
-                        <strong>Homero</strong> es el nombre tradicionalmente asociado
-                        con dos de las obras más importantes de la literatura griega:
+                        <strong>Homero</strong> es el nombre tradicionalmente
+                        asociado con los poemas épicos
                         <em>La Ilíada</em> y <em>La Odisea</em>.
                     </p>
 
                     <p>
-                        Se cree que vivió aproximadamente durante el siglo VIII a. C.,
-                        aunque no existen datos históricos seguros sobre su vida.
-                        Incluso se debate si realmente fue una sola persona o si
-                        las obras fueron resultado de una larga tradición oral.
+                        Se cree que vivió aproximadamente durante el
+                        siglo VIII a. C., aunque no existen datos
+                        históricos seguros sobre su vida.
                     </p>
 
                     <p>
-                        La tradición suele representarlo como un poeta ciego que
-                        recorría diferentes lugares de la antigua Grecia contando
-                        historias heroicas y mitológicas.
+                        La tradición antigua lo presenta como un poeta
+                        ciego. Sin embargo, la identidad de Homero y
+                        la manera en que fueron creados sus poemas
+                        continúan siendo objeto de debate.
                     </p>
+
+                    <p>
+                        Sus obras tuvieron una enorme influencia en la
+                        literatura, el arte y la cultura occidental.
+                    </p>
+
                 </div>
 
             </div>
+
         </section>
 
-        <!-- CONTEXTO -->
+
+        <!-- ================= CONTEXTO ================= -->
+
         <section id="contexto">
-            <h2>Homero y su época</h2>
+
+            <h2 class="titulo">
+                Homero y su época
+            </h2>
+
+            <p class="subtitulo">
+                Conoce algunos aspectos del mundo en el que surgieron
+                sus grandes poemas.
+            </p>
+
 
             <div class="tarjetas">
 
                 <div class="tarjeta">
-                    <h3>🏛️ Antigua Grecia</h3>
+
+                    <div class="icono">🏛️</div>
+
+                    <h3>Grecia antigua</h3>
+
                     <p>
                         Homero está relacionado con la Grecia arcaica,
-                        una época en la que las historias y tradiciones
-                        se transmitían principalmente de manera oral.
+                        una época de importantes transformaciones
+                        culturales y sociales.
                     </p>
+
                 </div>
 
-                <div class="tarjeta">
-                    <h3>🎶 Tradición oral</h3>
-                    <p>
-                        Los poemas épicos eran recitados por poetas
-                        conocidos como aedos. Utilizaban fórmulas y
-                        repeticiones para recordar grandes historias.
-                    </p>
-                </div>
 
                 <div class="tarjeta">
-                    <h3>⚔️ Héroes y dioses</h3>
+
+                    <div class="icono">🎶</div>
+
+                    <h3>Tradición oral</h3>
+
                     <p>
-                        Sus poemas presentan héroes, dioses, guerras,
-                        viajes y conflictos que reflejan las creencias
-                        y valores del mundo griego.
+                        Las historias épicas eran transmitidas
+                        oralmente por poetas que las recitaban
+                        ante diferentes públicos.
                     </p>
+
+                </div>
+
+
+                <div class="tarjeta">
+
+                    <div class="icono">⚔️</div>
+
+                    <h3>Héroes y dioses</h3>
+
+                    <p>
+                        Los poemas presentan héroes, dioses,
+                        guerras, viajes y aventuras inspiradas
+                        en la tradición mitológica griega.
+                    </p>
+
                 </div>
 
             </div>
+
         </section>
 
-        <!-- OBRAS -->
+
+        <!-- ================= OBRAS ================= -->
+
         <section id="obras">
-            <h2>Principales obras</h2>
+
+            <h2 class="titulo">
+                Sus principales obras
+            </h2>
+
+            <p class="subtitulo">
+                Dos grandes poemas épicos están tradicionalmente
+                vinculados con Homero.
+            </p>
+
 
             <div class="obra">
-                <h3>La Ilíada</h3>
-                <p>
-                    Narra acontecimientos relacionados con la guerra de Troya,
-                    especialmente el conflicto entre Aquiles y Agamenón.
-                    Es una de las obras fundamentales de la literatura occidental.
-                </p>
+
+                <div class="obra-numero">
+                    I
+                </div>
+
+                <div>
+
+                    <h3>La Ilíada</h3>
+
+                    <p>
+                        Narra acontecimientos relacionados con la
+                        guerra de Troya y presenta el conflicto entre
+                        personajes como Aquiles y Agamenón.
+                    </p>
+
+                </div>
+
             </div>
 
+
             <div class="obra">
-                <h3>La Odisea</h3>
-                <p>
-                    Cuenta el largo viaje de regreso de Odiseo a su hogar,
-                    Ítaca, después de la guerra de Troya. Durante su viaje
-                    enfrenta numerosas aventuras y obstáculos.
-                </p>
+
+                <div class="obra-numero">
+                    II
+                </div>
+
+                <div>
+
+                    <h3>La Odisea</h3>
+
+                    <p>
+                        Cuenta el largo viaje de regreso de Odiseo
+                        a su hogar, Ítaca, después de la guerra de Troya.
+                    </p>
+
+                </div>
+
             </div>
+
         </section>
 
-        <!-- LA ODISEA -->
+
+        <!-- ================= ODISEA ================= -->
+
         <section id="odisea">
-            <h2>La Odisea</h2>
 
             <div class="odisea">
+
+                <h2>⚓ La Odisea</h2>
+
                 <p>
-                    <strong>La Odisea</strong> es un poema épico compuesto por
-                    24 cantos. Su protagonista es <strong>Odiseo</strong>,
-                    también conocido como Ulises.
+                    <strong>La Odisea</strong> es un poema épico
+                    dividido tradicionalmente en 24 cantos.
+                    Su protagonista es Odiseo, también conocido
+                    como Ulises.
                 </p>
 
                 <br>
 
                 <p>
-                    La historia relata su intento de regresar a Ítaca después
-                    de la guerra de Troya. En el camino debe enfrentarse a
-                    diferentes peligros, criaturas y situaciones provocadas
-                    por los dioses.
+                    Después de la guerra de Troya, Odiseo intenta
+                    regresar a su hogar en Ítaca. Durante el viaje
+                    enfrenta numerosos peligros, aventuras y
+                    obstáculos.
                 </p>
 
                 <br>
 
                 <p>
-                    Uno de los temas principales de la obra es el deseo de
-                    regresar al hogar, acompañado de valores como la
-                    perseverancia, la inteligencia y la fidelidad.
+                    Entre los temas principales de la obra destacan
+                    el regreso al hogar, la perseverancia,
+                    la inteligencia y la fidelidad.
                 </p>
-            </div>
-        </section>
 
-        <!-- DATOS CURIOSOS -->
-        <section id="datos">
-            <h2>Datos interesantes sobre Homero</h2>
-
-            <div class="dato">
-                <div class="numero">1</div>
-                <p>
-                    No se conocen con certeza el lugar ni la fecha exacta
-                    de nacimiento de Homero.
-                </p>
-            </div>
-
-            <div class="dato">
-                <div class="numero">2</div>
-                <p>
-                    La existencia histórica de Homero ha sido objeto de
-                    debate durante siglos.
-                </p>
-            </div>
-
-            <div class="dato">
-                <div class="numero">3</div>
-                <p>
-                    La tradición lo representa como un poeta ciego.
-                </p>
-            </div>
-
-            <div class="dato">
-                <div class="numero">4</div>
-                <p>
-                    La Ilíada y La Odisea son consideradas obras fundamentales
-                    de la literatura universal.
-                </p>
-            </div>
-
-            <div class="dato">
-                <div class="numero">5</div>
-                <p>
-                    Sus poemas ayudaron a conservar historias, valores y
-                    tradiciones de la antigua cultura griega.
-                </p>
             </div>
 
         </section>
+
+
+        <!-- ================= PERSONAJES ================= -->
+
+        <section id="personajes">
+
+            <h2 class="titulo">
+                Personajes de La Odisea
+            </h2>
+
+            <p class="subtitulo">
+                Algunos de los personajes más importantes de la obra.
+            </p>
+
+
+            <div class="personajes">
+
+                <div class="personaje">
+
+                    <div class="emoji">🧔</div>
+
+                    <h3>Odiseo</h3>
+
+                    <p>
+                        Protagonista de la historia y rey de Ítaca.
+                        Destaca por su inteligencia y astucia.
+                    </p>
+
+                </div>
+
+
+                <div class="personaje">
+
+                    <div class="emoji">👩</div>
+
+                    <h3>Penélope</h3>
+
+                    <p>
+                        Esposa de Odiseo, conocida por su
+                        inteligencia y fidelidad.
+                    </p>
+
+                </div>
+
+
+                <div class="personaje">
+
+                    <div class="emoji">👦</div>
+
+                    <h3>Telémaco</h3>
+
+                    <p>
+                        Hijo de Odiseo y Penélope, quien busca
+                        conocer el destino de su padre.
+                    </p>
+
+                </div>
+
+
+                <div class="personaje">
+
+                    <div class="emoji">⚡</div>
+
+                    <h3>Poseidón</h3>
+
+                    <p>
+                        Dios del mar que dificulta el regreso
+                        de Odiseo a Ítaca.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LÍNEA DEL TIEMPO ================= -->
+
+        <section>
+
+            <h2 class="titulo">
+                Línea del tiempo
+            </h2>
+
+
+            <div class="timeline">
+
+                <div class="evento">
+
+                    <h3>🏺 Siglo VIII a. C.</h3>
+
+                    <p>
+                        Periodo aproximado en el que tradicionalmente
+                        se sitúa la vida de Homero.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <h3>📜 Composición de los poemas</h3>
+
+                    <p>
+                        La Ilíada y La Odisea se relacionan con una
+                        larga tradición poética oral de la antigua Grecia.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <h3>📚 Influencia literaria</h3>
+
+                    <p>
+                        Los poemas homéricos se convierten en una
+                        referencia fundamental para la literatura griega.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <h3>🌎 Actualidad</h3>
+
+                    <p>
+                        La Ilíada y La Odisea continúan siendo
+                        estudiadas y adaptadas en todo el mundo.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= VIDEOS ================= -->
+
+        <section id="videos">
+
+            <h2 class="titulo">
+                🎬 Videos sobre Homero y La Odisea
+            </h2>
+
+            <p class="subtitulo">
+                Aprende más sobre el autor y su obra mediante
+                recursos audiovisuales.
+            </p>
+
+
+            <div class="video-contenedor">
+
+                <div class="video">
+
+                    <!--
+                    Puedes cambiar el ID del video por cualquier
+                    video de YouTube que quieras utilizar.
+                    -->
+
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO_ID"
+                        title="Video sobre Homero y La Odisea"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+
+
+            <div style="text-align:center; margin-top:25px;">
+
+                <a
+                    class="boton"
+                    href="https://www.youtube.com/results?search_query=Homero+La+Odisea"
+                    target="_blank">
+
+                    🔎 Buscar videos en YouTube
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ENLACES ================= -->
+
+        <section id="enlaces">
+
+            <h2 class="titulo">
+                🔗 Explora más
+            </h2>
+
+            <p class="subtitulo">
+                Enlaces externos para continuar investigando.
+            </p>
+
+
+            <div class="enlaces">
+
+
+                <div class="enlace">
+
+                    <h3>▶️ YouTube</h3>
+
+                    <p>
+                        Encuentra documentales, explicaciones
+                        y videos sobre La Odisea.
+                    </p>
+
+                    <a
+                        class="boton"
+                        href="https://www.youtube.com/results?search_query=La+Odisea+Homero"
+                        target="_blank">
+
+                        Visitar
+
+                    </a>
+
+                </div>
+
+
+                <div class="enlace">
+
+                    <h3>📘 Facebook</h3>
+
+                    <p>
+                        Busca publicaciones y páginas relacionadas
+                        con literatura clásica.
+                    </p>
+
+                    <a
+                        class="boton"
+                        href="https://www.facebook.com/search/pages/?q=La%20Odisea%20Homero"
+                        target="_blank">
+
+                        Visitar
+
+                    </a>
+
+                </div>
+
+
+                <div class="enlace">
+
+                    <h3>🌐 Wikipedia</h3>
+
+                    <p>
+                        Consulta información adicional sobre
+                        Homero y sus obras.
+                    </p>
+
+                    <a
+                        class="boton"
+                        href="https://es.wikipedia.org/wiki/Homero"
+                        target="_blank">
+
+                        Visitar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BOTÓN FINAL ================= -->
+
+        <section style="text-align:center;">
+
+            <h2 class="titulo">
+                ¿Quieres conocer más sobre Homero?
+            </h2>
+
+            <p class="subtitulo">
+                Explora los recursos y descubre el mundo de
+                la literatura griega.
+            </p>
+
+            <a
+                href="#biografia"
+                class="boton">
+
+                ⬆️ Volver al inicio
+
+            </a>
+
+        </section>
+
 
     </main>
 
-    <!-- PIE DE PÁGINA -->
+
+    <!-- ================= PIE DE PÁGINA ================= -->
+
     <footer>
-        <p><strong>Homero — Biografía</strong></p>
-        <p>Página educativa sobre el poeta de la antigua Grecia</p>
-        <p>Proyecto escolar</p>
+
+        <p>
+            <strong>Homero | Biografía y La Odisea</strong>
+        </p>
+
+        <p>
+            Página web educativa - Proyecto escolar
+        </p>
+
+        <p>
+            Literatura clásica griega
+        </p>
+
     </footer>
+
 
 </body>
 </html>
-```
