@@ -1,35 +1,441 @@
-<!DOCTYPE HTML>
+```html
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Primera Página Web - CETPRO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homero - Biografía</title>
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: #f5efe2;
+            color: #33291f;
+        }
+
+        /* ENCABEZADO */
+        header {
+            background: linear-gradient(135deg, #49321f, #80613d);
+            color: white;
             text-align: center;
-            padding: 50px;
+            padding: 55px 20px;
         }
-        h1 {
-            color: #0056b3;
+
+        header h1 {
+            font-size: 55px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
         }
-        p {
-            color: #333333;
+
+        header p {
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        /* MENÚ */
+        nav {
+            background-color: #2d2117;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 18px;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d8b878;
+        }
+
+        /* CONTENEDOR */
+        .contenedor {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 35px;
+            color: #63462b;
+            margin-bottom: 30px;
+        }
+
+        /* PRESENTACIÓN */
+        .presentacion {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background-color: #fffaf0;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+
+        .retrato {
+            width: 260px;
+            height: 300px;
+            background-color: #d8c4a2;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #63462b;
+            font-size: 20px;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+
+        .presentacion p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* TARJETAS */
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background-color: #fffaf0;
+            padding: 28px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+            transition: transform 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-7px);
+        }
+
+        .tarjeta h3 {
+            color: #765331;
+            margin-bottom: 15px;
+            font-size: 23px;
+        }
+
+        .tarjeta p {
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* OBRAS */
+        .obra {
+            background-color: #e7d5b7;
+            margin: 20px 0;
+            padding: 25px;
+            border-left: 7px solid #765331;
+            border-radius: 8px;
+        }
+
+        .obra h3 {
+            color: #4e351f;
+            margin-bottom: 10px;
+            font-size: 25px;
+        }
+
+        .obra p {
+            line-height: 1.7;
+        }
+
+        /* ODÍSEA */
+        .odisea {
+            background: linear-gradient(135deg, #d8c09a, #f0dfc0);
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .odisea p {
+            max-width: 850px;
+            margin: auto;
+            line-height: 1.8;
             font-size: 18px;
         }
-        .card {
-            background: white;
+
+        /* DATOS */
+        .dato {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #fffaf0;
+            margin: 15px 0;
             padding: 20px;
             border-radius: 10px;
-            display: inline-block;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .numero {
+            background-color: #63462b;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            background-color: #2d2117;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 7px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            header h1 {
+                font-size: 40px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+
+            .presentacion {
+                flex-direction: column;
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .retrato {
+                width: 220px;
+                height: 250px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>¡Bienvenidos a mi página web!</h1>
-        <p>Hola, soy estudiante del CETPRO y este es mi primer proyecto publicado en GitHub Pages.</p>
-    </div>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <h1>HOMERO</h1>
+        <p>El gran poeta de la antigua Grecia</p>
+    </header>
+
+    <!-- MENÚ -->
+    <nav>
+        <a href="#biografia">Biografía</a>
+        <a href="#contexto">Contexto</a>
+        <a href="#obras">Obras</a>
+        <a href="#odisea">La Odisea</a>
+        <a href="#datos">Datos curiosos</a>
+    </nav>
+
+    <main class="contenedor">
+
+        <!-- BIOGRAFÍA -->
+        <section id="biografia">
+            <h2>Biografía de Homero</h2>
+
+            <div class="presentacion">
+
+                <div class="retrato">
+                    Imagen de Homero<br><br>
+                    <small>Puedes colocar aquí una imagen o ilustración del poeta.</small>
+                </div>
+
+                <div>
+                    <p>
+                        <strong>Homero</strong> es el nombre tradicionalmente asociado
+                        con dos de las obras más importantes de la literatura griega:
+                        <em>La Ilíada</em> y <em>La Odisea</em>.
+                    </p>
+
+                    <p>
+                        Se cree que vivió aproximadamente durante el siglo VIII a. C.,
+                        aunque no existen datos históricos seguros sobre su vida.
+                        Incluso se debate si realmente fue una sola persona o si
+                        las obras fueron resultado de una larga tradición oral.
+                    </p>
+
+                    <p>
+                        La tradición suele representarlo como un poeta ciego que
+                        recorría diferentes lugares de la antigua Grecia contando
+                        historias heroicas y mitológicas.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTEXTO -->
+        <section id="contexto">
+            <h2>Homero y su época</h2>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <h3>🏛️ Antigua Grecia</h3>
+                    <p>
+                        Homero está relacionado con la Grecia arcaica,
+                        una época en la que las historias y tradiciones
+                        se transmitían principalmente de manera oral.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>🎶 Tradición oral</h3>
+                    <p>
+                        Los poemas épicos eran recitados por poetas
+                        conocidos como aedos. Utilizaban fórmulas y
+                        repeticiones para recordar grandes historias.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>⚔️ Héroes y dioses</h3>
+                    <p>
+                        Sus poemas presentan héroes, dioses, guerras,
+                        viajes y conflictos que reflejan las creencias
+                        y valores del mundo griego.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- OBRAS -->
+        <section id="obras">
+            <h2>Principales obras</h2>
+
+            <div class="obra">
+                <h3>La Ilíada</h3>
+                <p>
+                    Narra acontecimientos relacionados con la guerra de Troya,
+                    especialmente el conflicto entre Aquiles y Agamenón.
+                    Es una de las obras fundamentales de la literatura occidental.
+                </p>
+            </div>
+
+            <div class="obra">
+                <h3>La Odisea</h3>
+                <p>
+                    Cuenta el largo viaje de regreso de Odiseo a su hogar,
+                    Ítaca, después de la guerra de Troya. Durante su viaje
+                    enfrenta numerosas aventuras y obstáculos.
+                </p>
+            </div>
+        </section>
+
+        <!-- LA ODISEA -->
+        <section id="odisea">
+            <h2>La Odisea</h2>
+
+            <div class="odisea">
+                <p>
+                    <strong>La Odisea</strong> es un poema épico compuesto por
+                    24 cantos. Su protagonista es <strong>Odiseo</strong>,
+                    también conocido como Ulises.
+                </p>
+
+                <br>
+
+                <p>
+                    La historia relata su intento de regresar a Ítaca después
+                    de la guerra de Troya. En el camino debe enfrentarse a
+                    diferentes peligros, criaturas y situaciones provocadas
+                    por los dioses.
+                </p>
+
+                <br>
+
+                <p>
+                    Uno de los temas principales de la obra es el deseo de
+                    regresar al hogar, acompañado de valores como la
+                    perseverancia, la inteligencia y la fidelidad.
+                </p>
+            </div>
+        </section>
+
+        <!-- DATOS CURIOSOS -->
+        <section id="datos">
+            <h2>Datos interesantes sobre Homero</h2>
+
+            <div class="dato">
+                <div class="numero">1</div>
+                <p>
+                    No se conocen con certeza el lugar ni la fecha exacta
+                    de nacimiento de Homero.
+                </p>
+            </div>
+
+            <div class="dato">
+                <div class="numero">2</div>
+                <p>
+                    La existencia histórica de Homero ha sido objeto de
+                    debate durante siglos.
+                </p>
+            </div>
+
+            <div class="dato">
+                <div class="numero">3</div>
+                <p>
+                    La tradición lo representa como un poeta ciego.
+                </p>
+            </div>
+
+            <div class="dato">
+                <div class="numero">4</div>
+                <p>
+                    La Ilíada y La Odisea son consideradas obras fundamentales
+                    de la literatura universal.
+                </p>
+            </div>
+
+            <div class="dato">
+                <div class="numero">5</div>
+                <p>
+                    Sus poemas ayudaron a conservar historias, valores y
+                    tradiciones de la antigua cultura griega.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p><strong>Homero — Biografía</strong></p>
+        <p>Página educativa sobre el poeta de la antigua Grecia</p>
+        <p>Proyecto escolar</p>
+    </footer>
+
 </body>
 </html>
+```
